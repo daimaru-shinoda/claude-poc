@@ -1,0 +1,9 @@
+node_modules/**
+docs/**
+tests/**
+.claude/**
+CLAUDE.md
+jest.config.js
+tsconfig.json
+package.json
+package-lock.json

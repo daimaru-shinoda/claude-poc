@@ -1,0 +1,140 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Write(**/.env)",
+      "Edit(**/.env)",
+
+      "Read(**/.env.production)",
+      "Write(**/.env.production)",
+      "Edit(**/.env.production)",
+
+      "Read(**/.env.test)",
+      "Write(**/.env.test)",
+      "Edit(**/.env.test)",
+
+      "Read(**/.env.development)",
+      "Write(**/.env.development)",
+      "Edit(**/.env.development)",
+
+      "Read(**/.env.local*)",
+      "Write(**/.env.local*)",
+      "Edit(**/.env.local*)",
+
+      "Read(**/.env.staging)",
+      "Write(**/.env.staging)",
+      "Edit(**/.env.staging)",
+
+      "Read(**/credentials/**)",
+      "Write(**/credentials/**)",
+      "Edit(**/credentials/**)",
+
+      "Read(**/secrets/**)",
+      "Write(**/secrets/**)",
+      "Edit(**/secrets/**)",
+
+      "Read(**/*.key)",
+      "Write(**/*.key)",
+      "Edit(**/*.key)",
+
+      "Read(**/id_rsa*)",
+      "Write(**/id_rsa*)",
+      "Edit(**/id_rsa*)",
+
+      "Read(**/*.p12)",
+      "Write(**/*.p12)",
+      "Edit(**/*.p12)",
+
+      "Read(**/*.ppk)",
+      "Write(**/*.ppk)",
+      "Edit(**/*.ppk)",
+
+      "Read(**/*.pfx)",
+      "Write(**/*.pfx)",
+      "Edit(**/*.pfx)",
+
+      "Read(**/*.pem)",
+      "Write(**/*.pem)",
+      "Edit(**/*.pem)",
+
+      "Write(docs/code-map.md)",
+      "Edit(docs/code-map.md)",
+
+      "Bash(git push:*)",
+      "Bash(git reset --hard)",
+      "Bash(git clean -fd)",
+      "Bash(git rebase:*)",
+      "Bash(git reset:*)",
+      "Bash(git merge:*)",
+      "Bash(git restore:*)",
+      "Bash(git stash:*)",
+      "Bash(git cherry-pick:*)",
+      "Bash(git revert:*)",
+      "Bash(git tag:*)",
+      "Bash(git clean:*)",
+      "Bash(git branch -d:*)",
+      "Bash(git branch -D:*)",
+      "Bash(git branch --delete:*)",
+      "Bash(git submodule:*)"
+    ],
+    "allow": [
+      "Read(**/.env.example)",
+      "Write(**/.env.example)",
+      "Edit(**/.env.example)",
+      "Bash(mkdir docs:*)",
+      "Bash(mkdir tests:*)",
+      "Read(docs/audit-plan.md)",
+      "Write(docs/audit-plan.md)",
+      "Edit(docs/audit-plan.md)",
+      "Read(docs/audit-security.md)",
+      "Write(docs/audit-security.md)",
+      "Edit(docs/audit-security.md)",
+      "Read(docs/CHANGELOG.md)",
+      "Write(docs/CHANGELOG.md)",
+      "Edit(docs/CHANGELOG.md)",
+      "Read(analysis/README.md)",
+      "Edit(analysis/README.md)",
+      "Bash(gcloud container:*)",
+
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git fetch:*)",
+      "Bash(git commit:*)",
+      "Bash(git add .)",
+      "Bash(git checkout -b:*)",
+      "Bash(git switch:*)",
+
+      "Bash(node tests/test.js)",
+      "Bash(npm install)",
+      "Bash(cargo check:*)",
+      "Bash(cargo test:*)",
+
+      "Skill(readable)",
+      "Skill(security-check)",
+      "Skill(refactor)",
+      "Skill(audit-plan)",
+      "Skill(audit-fix)",
+      "Skill(test)",
+      "Skill(test-gas)",
+      "Skill(test-ts)",
+      "Skill(test-rust)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/format-src.js 2>&1 || true",
+            "timeout": 30,
+            "statusMessage": "Running eslint --fix / prettier --write on src/*.js"
+          }
+        ]
+      }
+    ]
+  }
+}

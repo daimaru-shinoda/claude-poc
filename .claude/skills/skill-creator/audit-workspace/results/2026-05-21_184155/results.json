@@ -1,0 +1,1390 @@
+{
+  "exit_reason": "max_iterations (5)",
+  "original_description": "\u30d5\u30eb\u30aa\u30fc\u30c8\u76e3\u67fb\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u3002audit-plan \u2192 audit-fix ch \u2192 test \u2192 audit-fix ml \u2192 test \u2192 readable \u2192 security-check \u3092\u9806\u6b21\u5b9f\u884c\u3057\u3001\u6700\u5f8c\u306b\u8981\u5bfe\u8a71\u30d0\u30b0\u4e00\u89a7\u3092\u63d0\u793a\u3059\u308b\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c/audit\u300d\u3068\u8a00\u3063\u305f\u3068\u304d\u306b\u4f7f\u3046\u3002",
+  "best_description": "\u30d5\u30eb\u30aa\u30fc\u30c8\u76e3\u67fb\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u3002audit-plan \u2192 audit-fix ch \u2192 test \u2192 audit-fix ml \u2192 test \u2192 readable \u2192 security-check \u3092\u9806\u6b21\u5b9f\u884c\u3057\u3001\u6700\u5f8c\u306b\u8981\u5bfe\u8a71\u30d0\u30b0\u4e00\u89a7\u3092\u63d0\u793a\u3059\u308b\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c/audit\u300d\u3068\u8a00\u3063\u305f\u3068\u304d\u306b\u4f7f\u3046\u3002",
+  "best_score": "4/8",
+  "best_train_score": "6/12",
+  "best_test_score": "4/8",
+  "final_description": "Use when the user wants the complete audit pipeline in a single automated run \u2014 not just analysis, not just fixes, not just security alone, but all phases together: bug detection, auto-fixing, test verification, readability improvement, and security scanning chained in sequence. The defining signal is wanting everything done at once with one command (\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c/audit\u300d\u300c\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u5168\u90e8\u307e\u3068\u3081\u3066\u300d). Pick this over audit-plan (analysis only), audit-fix (fix only), or security-check (security only) whenever the user's intent is comprehensive, unattended quality improvement across the whole codebase.",
+  "iterations_run": 5,
+  "holdout": 0.4,
+  "train_size": 12,
+  "test_size": 8,
+  "history": [
+    {
+      "iteration": 1,
+      "description": "\u30d5\u30eb\u30aa\u30fc\u30c8\u76e3\u67fb\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u3002audit-plan \u2192 audit-fix ch \u2192 test \u2192 audit-fix ml \u2192 test \u2192 readable \u2192 security-check \u3092\u9806\u6b21\u5b9f\u884c\u3057\u3001\u6700\u5f8c\u306b\u8981\u5bfe\u8a71\u30d0\u30b0\u4e00\u89a7\u3092\u63d0\u793a\u3059\u308b\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c/audit\u300d\u3068\u8a00\u3063\u305f\u3068\u304d\u306b\u4f7f\u3046\u3002",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "\u54c1\u8cea\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u70b9\u3092\u81ea\u52d5\u3067\u4fee\u6b63\u3057\u3068\u3044\u3066\u3002\u30c6\u30b9\u30c8\u3082\u901a\u3057\u3066\u306d",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "/audit",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30ea\u30ea\u30fc\u30b9\u524d\u306b\u30b3\u30fc\u30c9\u3092\u4e00\u901a\u308a\u898b\u3066\u307b\u3057\u3044\u3002\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u304b\u30d0\u30b0\u3068\u304b\u53ef\u8aad\u6027\u3068\u304b\u5168\u90e8\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u3042\u308c\u3070\u76f4\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u53ef\u8aad\u6027\u3092\u4e0a\u3052\u3066\u3002\u5909\u6570\u540d\u3068\u304b\u30b3\u30e1\u30f3\u30c8\u3092\u6574\u7406\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u306e\u68da\u5378\u3057\u3092\u3057\u305f\u3044\u3002\u91cd\u5927\u306a\u554f\u984c\u304b\u3089\u9806\u306b\u6d17\u3044\u51fa\u3057\u3066\u76f4\u3057\u3066\u307b\u3057\u3044",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u3092\u304a\u9858\u3044\u3057\u307e\u3059",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306ePR\u306e\u5dee\u5206\u3092\u30ec\u30d3\u30e5\u30fc\u3057\u3066\u554f\u984c\u70b9\u3092\u6307\u6458\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30c6\u30b9\u30c8\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "description": "\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u300d\u300c\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u307e\u3068\u3081\u3066\u898b\u3066\u307b\u3057\u3044\u300d\u300c\u5168\u81ea\u52d5\u3067\u30b3\u30fc\u30c9\u54c1\u8cea\u3092\u6539\u5584\u3057\u3066\u300d\u306e\u3088\u3046\u306b\u3001\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u5168\u4f53\u306e\u5305\u62ec\u7684\u306a\u54c1\u8cea\u78ba\u8a8d\u30fb\u81ea\u52d5\u4fee\u6b63\u3092\u6c42\u3081\u3089\u308c\u305f\u3068\u304d\u306b\u4f7f\u3046\u3002\u8907\u6570\u306e\u54c1\u8cea\u89b3\u70b9\uff08\u30d0\u30b0\u691c\u51fa\u30fb\u81ea\u52d5\u4fee\u6b63\u30fb\u30c6\u30b9\u30c8\u30fb\u53ef\u8aad\u6027\u30fb\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\uff09\u3092\u4e00\u62ec\u3067\u51e6\u7406\u3059\u308b\u30de\u30b9\u30bf\u30fc\u30b9\u30ad\u30eb\u3002\u300c\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u300d\u300c\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066\u300d\u306a\u3069\u3001\u30a8\u30f3\u30c9\u30c4\u30fc\u30a8\u30f3\u30c9\u306e\u76e3\u67fb\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\u3092\u8981\u6c42\u3055\u308c\u305f\u3068\u304d\u306b\u547c\u3073\u51fa\u3059\u3002\u5358\u4e00\u306e\u554f\u984c\u4fee\u6b63\uff08\u7279\u5b9a\u30d0\u30b0\u306e\u307f\u3001\u578b\u30a8\u30e9\u30fc\u306e\u307f\u3001ESLint\u306e\u307f\u7b49\uff09\u3084\u500b\u5225\u30d5\u30a7\u30fc\u30ba\uff08security-check\u306e\u307f\u3001audit-plan\u306e\u307f\u7b49\uff09\u306e\u5b9f\u884c\u306b\u306f\u4f7f\u308f\u306a\u3044\u3002",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "\u54c1\u8cea\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u70b9\u3092\u81ea\u52d5\u3067\u4fee\u6b63\u3057\u3068\u3044\u3066\u3002\u30c6\u30b9\u30c8\u3082\u901a\u3057\u3066\u306d",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "/audit",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30ea\u30ea\u30fc\u30b9\u524d\u306b\u30b3\u30fc\u30c9\u3092\u4e00\u901a\u308a\u898b\u3066\u307b\u3057\u3044\u3002\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u304b\u30d0\u30b0\u3068\u304b\u53ef\u8aad\u6027\u3068\u304b\u5168\u90e8\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u3042\u308c\u3070\u76f4\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u306e\u68da\u5378\u3057\u3092\u3057\u305f\u3044\u3002\u91cd\u5927\u306a\u554f\u984c\u304b\u3089\u9806\u306b\u6d17\u3044\u51fa\u3057\u3066\u76f4\u3057\u3066\u307b\u3057\u3044",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u53ef\u8aad\u6027\u3092\u4e0a\u3052\u3066\u3002\u5909\u6570\u540d\u3068\u304b\u30b3\u30e1\u30f3\u30c8\u3092\u6574\u7406\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u3092\u304a\u9858\u3044\u3057\u307e\u3059",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306ePR\u306e\u5dee\u5206\u3092\u30ec\u30d3\u30e5\u30fc\u3057\u3066\u554f\u984c\u70b9\u3092\u6307\u6458\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30c6\u30b9\u30c8\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 3,
+      "description": "TRIGGER on: \u300c\u76e3\u67fb\u3057\u3066\u300d\u300caudit\u5b9f\u884c\u300d\u300c\u30b3\u30fc\u30c9\u54c1\u8cea\u3092\u5168\u4f53\u7684\u306b\u6539\u5584\u3057\u3066\u300d\u300c\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u5168\u90e8\u307e\u3068\u3081\u3066\u30c1\u30a7\u30c3\u30af\u30fb\u4fee\u6b63\u3057\u3066\u300d\u300c\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066\u300d\u3002\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u5168\u4f53\u3092\u30ab\u30d0\u30fc\u3059\u308b\u81ea\u52d5\u76e3\u67fb\u30d1\u30a4\u30d7\u30e9\u30a4\u30f3\uff08\u30d0\u30b0\u691c\u51fa\u30fb\u81ea\u52d5\u4fee\u6b63\u30fb\u30c6\u30b9\u30c8\u30fb\u53ef\u8aad\u6027\u6539\u5584\u30fb\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3092\u4e00\u62ec\u51e6\u7406\uff09\u3002\u5358\u4e00\u30d5\u30a7\u30fc\u30ba\uff08security-check\u306e\u307f\u30fbaudit-plan\u306e\u307f\u7b49\uff09\u3084\u500b\u5225\u554f\u984c\u306e\u307f\u306e\u4fee\u6b63\u306b\u306f\u4f7f\u308f\u306a\u3044\u3002",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "\u54c1\u8cea\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u70b9\u3092\u81ea\u52d5\u3067\u4fee\u6b63\u3057\u3068\u3044\u3066\u3002\u30c6\u30b9\u30c8\u3082\u901a\u3057\u3066\u306d",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "/audit",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30ea\u30ea\u30fc\u30b9\u524d\u306b\u30b3\u30fc\u30c9\u3092\u4e00\u901a\u308a\u898b\u3066\u307b\u3057\u3044\u3002\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u304b\u30d0\u30b0\u3068\u304b\u53ef\u8aad\u6027\u3068\u304b\u5168\u90e8\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u3042\u308c\u3070\u76f4\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u306e\u68da\u5378\u3057\u3092\u3057\u305f\u3044\u3002\u91cd\u5927\u306a\u554f\u984c\u304b\u3089\u9806\u306b\u6d17\u3044\u51fa\u3057\u3066\u76f4\u3057\u3066\u307b\u3057\u3044",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u53ef\u8aad\u6027\u3092\u4e0a\u3052\u3066\u3002\u5909\u6570\u540d\u3068\u304b\u30b3\u30e1\u30f3\u30c8\u3092\u6574\u7406\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u3092\u304a\u9858\u3044\u3057\u307e\u3059",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30c6\u30b9\u30c8\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306ePR\u306e\u5dee\u5206\u3092\u30ec\u30d3\u30e5\u30fc\u3057\u3066\u554f\u984c\u70b9\u3092\u6307\u6458\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 4,
+      "description": "Use for any request to run a comprehensive, end-to-end code audit: finding bugs, auto-fixing them, running tests, improving readability, and checking security \u2014 all in one automated pipeline. Covers requests like \u300c\u76e3\u67fb\u3057\u3066\u300d\u300c\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u300d\u300c\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u300d\u300c\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u300d\u300c\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066\u300d. This is the master skill when users want everything handled at once, not just one specific phase or one specific bug fix.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "\u54c1\u8cea\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u70b9\u3092\u81ea\u52d5\u3067\u4fee\u6b63\u3057\u3068\u3044\u3066\u3002\u30c6\u30b9\u30c8\u3082\u901a\u3057\u3066\u306d",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "/audit",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30ea\u30ea\u30fc\u30b9\u524d\u306b\u30b3\u30fc\u30c9\u3092\u4e00\u901a\u308a\u898b\u3066\u307b\u3057\u3044\u3002\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u304b\u30d0\u30b0\u3068\u304b\u53ef\u8aad\u6027\u3068\u304b\u5168\u90e8\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u3042\u308c\u3070\u76f4\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u306e\u68da\u5378\u3057\u3092\u3057\u305f\u3044\u3002\u91cd\u5927\u306a\u554f\u984c\u304b\u3089\u9806\u306b\u6d17\u3044\u51fa\u3057\u3066\u76f4\u3057\u3066\u307b\u3057\u3044",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u53ef\u8aad\u6027\u3092\u4e0a\u3052\u3066\u3002\u5909\u6570\u540d\u3068\u304b\u30b3\u30e1\u30f3\u30c8\u3092\u6574\u7406\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u3092\u304a\u9858\u3044\u3057\u307e\u3059",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306ePR\u306e\u5dee\u5206\u3092\u30ec\u30d3\u30e5\u30fc\u3057\u3066\u554f\u984c\u70b9\u3092\u6307\u6458\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30c6\u30b9\u30c8\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "iteration": 5,
+      "description": "Use when the user wants the complete audit pipeline in a single automated run \u2014 not just analysis, not just fixes, not just security alone, but all phases together: bug detection, auto-fixing, test verification, readability improvement, and security scanning chained in sequence. The defining signal is wanting everything done at once with one command (\u300c\u76e3\u67fb\u3057\u3066\u300d\u300c/audit\u300d\u300c\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u5168\u90e8\u307e\u3068\u3081\u3066\u300d). Pick this over audit-plan (analysis only), audit-fix (fix only), or security-check (security only) whenever the user's intent is comprehensive, unattended quality improvement across the whole codebase.",
+      "train_passed": 6,
+      "train_failed": 6,
+      "train_total": 12,
+      "train_results": [
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "test_passed": 4,
+      "test_failed": 4,
+      "test_total": 8,
+      "test_results": [
+        {
+          "query": "\u54c1\u8cea\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u70b9\u3092\u81ea\u52d5\u3067\u4fee\u6b63\u3057\u3068\u3044\u3066\u3002\u30c6\u30b9\u30c8\u3082\u901a\u3057\u3066\u306d",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "/audit",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30ea\u30ea\u30fc\u30b9\u524d\u306b\u30b3\u30fc\u30c9\u3092\u4e00\u901a\u308a\u898b\u3066\u307b\u3057\u3044\u3002\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3068\u304b\u30d0\u30b0\u3068\u304b\u53ef\u8aad\u6027\u3068\u304b\u5168\u90e8\u30c1\u30a7\u30c3\u30af\u3057\u3066\u554f\u984c\u3042\u308c\u3070\u76f4\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u53ef\u8aad\u6027\u3092\u4e0a\u3052\u3066\u3002\u5909\u6570\u540d\u3068\u304b\u30b3\u30e1\u30f3\u30c8\u3092\u6574\u7406\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u306e\u68da\u5378\u3057\u3092\u3057\u305f\u3044\u3002\u91cd\u5927\u306a\u554f\u984c\u304b\u3089\u9806\u306b\u6d17\u3044\u51fa\u3057\u3066\u76f4\u3057\u3066\u307b\u3057\u3044",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306ePR\u306e\u5dee\u5206\u3092\u30ec\u30d3\u30e5\u30fc\u3057\u3066\u554f\u984c\u70b9\u3092\u6307\u6458\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u3092\u304a\u9858\u3044\u3057\u307e\u3059",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30c6\u30b9\u30c8\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ],
+      "passed": 6,
+      "failed": 6,
+      "total": 12,
+      "results": [
+        {
+          "query": "\u958b\u767a\u30c1\u30fc\u30e0\u306e\u30b3\u30fc\u30c9\u30ec\u30d3\u30e5\u30fc\u306e\u4ee3\u308f\u308a\u306b\u5168\u81ea\u52d5\u3067\u76e3\u67fb\u304b\u3089\u4fee\u6b63\u307e\u3067\u56de\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "audit\u5b9f\u884c\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3046\u3061\u306e\u30ea\u30dd\u30b8\u30c8\u30ea\u3001\u305d\u308d\u305d\u308d\u3061\u3083\u3093\u3068\u76e3\u67fb\u3057\u306a\u3044\u3068\u306a\u3068\u601d\u3063\u3066\u3066\u3002\u30d0\u30b0\u3082\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3082\u53ef\u8aad\u6027\u3082\u5168\u90e8\u898b\u3066\u3082\u3089\u3048\u308b\uff1f",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30b3\u30fc\u30c9\u54c1\u8cea\u306e\u554f\u984c\u3092\u5168\u90e8\u6d17\u3044\u51fa\u3057\u3066\u4fee\u6b63\u307e\u3067\u3084\u3063\u3066\u307b\u3057\u3044\u3067\u3059",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u76e3\u67fb\u3057\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u30c1\u30a7\u30c3\u30af\u3060\u3051\u3084\u3063\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5168\u4f53\u3092\u76e3\u67fb\u3057\u3066\u307b\u3057\u3044\u3002\u30d0\u30b0\u3082\u4fee\u6b63\u307e\u3067\u5168\u90e8\u3084\u3063\u3066",
+          "should_trigger": true,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": false
+        },
+        {
+          "query": "\u3053\u306e\u30e2\u30b8\u30e5\u30fc\u30eb\u3060\u3051\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3057\u3066\u3002\u30c6\u30b9\u30c8\u3092\u66f8\u304d\u3084\u3059\u3044\u69cb\u9020\u306b\u5909\u3048\u305f\u3044",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "TypeScript\u306e\u578b\u30a8\u30e9\u30fc\u3092\u5168\u90e8\u89e3\u6d88\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u3053\u306e\u30d0\u30b0\u3092\u76f4\u3057\u3066\u3002null\u30c1\u30a7\u30c3\u30af\u304c\u629c\u3051\u3066\u308b",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "ESLint\u306e\u30a8\u30e9\u30fc\u304c\u51fa\u3066\u308b\u306e\u3067\u76f4\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        },
+        {
+          "query": "\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u304c\u9045\u3044\u3002\u30dc\u30c8\u30eb\u30cd\u30c3\u30af\u3092\u63a2\u3057\u3066\u6539\u5584\u3057\u3066",
+          "should_trigger": false,
+          "trigger_rate": 0.0,
+          "triggers": 0,
+          "runs": 3,
+          "pass": true
+        }
+      ]
+    }
+  ]
+}

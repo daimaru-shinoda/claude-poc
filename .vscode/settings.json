@@ -1,0 +1,9 @@
+{
+  "files.associations": {
+    ".claspignore": "ignore"
+  },
+  "[ignore]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  }
+}

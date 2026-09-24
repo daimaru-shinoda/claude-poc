@@ -1,0 +1,22 @@
+[
+  {"query": "監査して", "should_trigger": true},
+  {"query": "このプロジェクト全体を監査してほしい。バグも修正まで全部やって", "should_trigger": true},
+  {"query": "/audit", "should_trigger": true},
+  {"query": "リリース前にコードを一通り見てほしい。セキュリティとかバグとか可読性とか全部チェックして問題あれば直して", "should_trigger": true},
+  {"query": "audit実行して", "should_trigger": true},
+  {"query": "コード品質の問題を全部洗い出して修正までやってほしいです", "should_trigger": true},
+  {"query": "うちのリポジトリ、そろそろちゃんと監査しないとなと思ってて。バグもセキュリティも可読性も全部見てもらえる？", "should_trigger": true},
+  {"query": "品質チェックして問題点を自動で修正しといて。テストも通してね", "should_trigger": true},
+  {"query": "コードの棚卸しをしたい。重大な問題から順に洗い出して直してほしい", "should_trigger": true},
+  {"query": "開発チームのコードレビューの代わりに全自動で監査から修正まで回して", "should_trigger": true},
+  {"query": "このバグを直して。nullチェックが抜けてる", "should_trigger": false},
+  {"query": "セキュリティチェックだけやって", "should_trigger": false},
+  {"query": "このファイルのコードレビューをお願いします", "should_trigger": false},
+  {"query": "可読性を上げて。変数名とかコメントを整理して", "should_trigger": false},
+  {"query": "テストコードを書いて", "should_trigger": false},
+  {"query": "このPRの差分をレビューして問題点を指摘して", "should_trigger": false},
+  {"query": "ESLintのエラーが出てるので直して", "should_trigger": false},
+  {"query": "TypeScriptの型エラーを全部解消して", "should_trigger": false},
+  {"query": "このモジュールだけリファクタリングして。テストを書きやすい構造に変えたい", "should_trigger": false},
+  {"query": "パフォーマンスが遅い。ボトルネックを探して改善して", "should_trigger": false}
+]
