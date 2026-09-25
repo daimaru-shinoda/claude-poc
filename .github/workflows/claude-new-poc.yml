@@ -45,10 +45,14 @@ jobs:
             --private \
             --description "PoC for ${{ github.repository }}#${ISSUE_NUMBER}"
 
-      - name: Clone new repository
+      - name: Clone new repository (wait for template generation)
         run: |
           for i in $(seq 1 10); do
-            gh repo clone "$OWNER/${{ steps.repo.outputs.name }}" poc-repo && break
+            rm -rf poc-repo
+            gh repo clone "$OWNER/${{ steps.repo.outputs.name }}" poc-repo
+            if [ -f poc-repo/README.md ]; then
+              break
+            fi
             echo "Template generation not ready yet, retrying..."
             sleep 3
           done
@@ -61,7 +65,7 @@ jobs:
             echo ">"
             echo "> ${ISSUE_TITLE}"
             echo
-            cat README.md 2>/dev/null
+            cat README.md 2>/dev/null || true
           } > README.md.new
           mv README.md.new README.md
           git config user.name "claude-poc-bot"
