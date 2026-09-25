@@ -1,0 +1,81 @@
+name: Create PoC Repository
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  create-poc-repo:
+    if: github.event.label.name == 'new-poc'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    env:
+      GH_TOKEN: ${{ secrets.POC_REPO_TOKEN }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_BODY: ${{ github.event.issue.body }}
+      ISSUE_URL: ${{ github.event.issue.html_url }}
+      OWNER: ${{ github.repository_owner }}
+    steps:
+      - name: Generate repo name
+        id: repo
+        run: |
+          SLUG=$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' | cut -c1-40)
+          NAME="claude-poc__${ISSUE_NUMBER}-${SLUG}"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Create private repository
+        run: |
+          gh repo create "$OWNER/${{ steps.repo.outputs.name }}" \
+            --private \
+            --description "PoC for ${{ github.repository }}#${ISSUE_NUMBER}"
+
+      - name: Clone new repository
+        run: gh repo clone "$OWNER/${{ steps.repo.outputs.name }}" poc-repo
+
+      - name: Write README and push
+        working-directory: poc-repo
+        run: |
+          cat > README.md <<EOF
+          # ${{ steps.repo.outputs.name }}
+
+          PoC generated from issue: ${ISSUE_URL}
+
+          ## ${ISSUE_TITLE}
+          EOF
+          git config user.name "claude-poc-bot"
+          git config user.email "noreply@anthropic.com"
+          git add README.md
+          git commit -m "Add README with source issue link"
+          git push
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Generate design doc
+        working-directory: poc-repo
+        run: |
+          mkdir -p docs
+          claude -p "以下のIssueの内容を読み、PoCの実装方針を docs/plan.md に書いてください。方針だけでなく判断理由（Why）も記載してください。コード自体はまだ書かないでください。
+
+          # Issue: ${ISSUE_TITLE}
+
+          ${ISSUE_BODY}" \
+            --allowedTools "Write" \
+            --output-format text
+
+      - name: Commit and push design doc
+        working-directory: poc-repo
+        run: |
+          git add docs/plan.md
+          git commit -m "Add initial design doc"
+          git push
+
+      - name: Comment back on issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --repo "${{ github.repository }}" \
+            --body "PoCリポジトリを作成しました: https://github.com/${OWNER}/${{ steps.repo.outputs.name }}"
