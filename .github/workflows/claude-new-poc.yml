@@ -19,10 +19,19 @@ jobs:
       ISSUE_URL: ${{ github.event.issue.html_url }}
       OWNER: ${{ github.repository_owner }}
     steps:
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Generate repo name
         id: repo
         run: |
-          SLUG=$(echo "$ISSUE_TITLE" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' | cut -c1-40)
+          SLUG_RAW=$(claude -p "次のIssueタイトルをURLセーフなスラッグに変換してください。日本語はローマ字（ヘボン式）に変換すること。出力はスラッグ文字列のみ（説明・引用符・改行は不要）。小文字の英数字とハイフンのみ、40文字以内。
+
+          タイトル: ${ISSUE_TITLE}" --output-format text)
+          SLUG=$(echo "$SLUG_RAW" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g' | cut -c1-40)
+          if [ -z "$SLUG" ]; then
+            SLUG="poc"
+          fi
           NAME="claude-poc__${ISSUE_NUMBER}-${SLUG}"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
@@ -53,9 +62,6 @@ jobs:
           git add README.md
           git commit -m "Add README with source issue link"
           git push
-
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
 
       - name: Generate design doc
         working-directory: poc-repo
