@@ -26,6 +26,9 @@ jobs:
           NAME="claude-poc__${ISSUE_NUMBER}-${SLUG}"
           echo "name=$NAME" >> "$GITHUB_OUTPUT"
 
+      - name: Configure git authentication
+        run: gh auth setup-git
+
       - name: Create private repository
         run: |
           gh repo create "$OWNER/${{ steps.repo.outputs.name }}" \
