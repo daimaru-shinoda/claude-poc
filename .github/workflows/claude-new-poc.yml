@@ -38,29 +38,36 @@ jobs:
       - name: Configure git authentication
         run: gh auth setup-git
 
-      - name: Create private repository
+      - name: Create private repository from boilerplate template
         run: |
           gh repo create "$OWNER/${{ steps.repo.outputs.name }}" \
+            --template "daimaru-shinoda/claude-template" \
             --private \
             --description "PoC for ${{ github.repository }}#${ISSUE_NUMBER}"
 
       - name: Clone new repository
-        run: gh repo clone "$OWNER/${{ steps.repo.outputs.name }}" poc-repo
+        run: |
+          for i in $(seq 1 10); do
+            gh repo clone "$OWNER/${{ steps.repo.outputs.name }}" poc-repo && break
+            echo "Template generation not ready yet, retrying..."
+            sleep 3
+          done
 
-      - name: Write README and push
+      - name: Link source issue in README and push
         working-directory: poc-repo
         run: |
-          cat > README.md <<EOF
-          # ${{ steps.repo.outputs.name }}
-
-          PoC generated from issue: ${ISSUE_URL}
-
-          ## ${ISSUE_TITLE}
-          EOF
+          {
+            echo "> PoC generated from issue: ${ISSUE_URL}"
+            echo ">"
+            echo "> ${ISSUE_TITLE}"
+            echo
+            cat README.md 2>/dev/null
+          } > README.md.new
+          mv README.md.new README.md
           git config user.name "claude-poc-bot"
           git config user.email "noreply@anthropic.com"
           git add README.md
-          git commit -m "Add README with source issue link"
+          git commit -m "Link source issue in README"
           git push
 
       - name: Generate design doc
